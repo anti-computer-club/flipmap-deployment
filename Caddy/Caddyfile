@@ -1,0 +1,19 @@
+api.{$SITE_ADDRESS} {
+	log {
+		level info
+	}
+	encode zstd gzip
+
+	# Host references virtual address from docker-compose
+	reverse_proxy backend:{$APP_PORT}
+}
+
+{$SITE_ADDRESS} {
+	log {
+		level info
+	}
+	encode zstd gzip
+	root * /srv/www/
+	file_server
+	try_files {path} /index.html
+}
