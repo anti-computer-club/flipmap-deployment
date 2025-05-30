@@ -5,7 +5,6 @@ RUN xcaddy build \
   --with github.com/mholt/caddy-ratelimit
 
 FROM caddy:2.9.1
-LABEL org.opencontainers.image.description="Caddy with modules and Caddyfile for FlipMap app's backend"
 
 COPY Caddyfile /etc/caddy/Caddyfile
 
