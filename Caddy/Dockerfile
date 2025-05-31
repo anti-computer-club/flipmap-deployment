@@ -1,8 +1,8 @@
-# builds Caddy, which provides easy TLS & rate-limiting
+# builds Caddy, which provides easy TLS
 FROM caddy:2.9.1-builder AS builder
 
-RUN xcaddy build \
-  --with github.com/mholt/caddy-ratelimit
+RUN xcaddy build 
+#--with github.com/mholt/caddy-ratelimit maybe another time
 
 FROM caddy:2.9.1
 

@@ -8,7 +8,7 @@ on:
 env:
   REGISTRY: ghcr.io
   # Repos can be uppercase but tags can't, so hardcode where needed
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: anti-computer-club/flipmap-caddy
 
 jobs:
   build-and-push-caddy:
@@ -92,5 +92,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /srv/
-            docker-compose up -d --pull always
+            docker compose up -d --pull always
             docker image prune
